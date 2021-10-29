@@ -1,4 +1,4 @@
-function reverse(str){
+function isPalindrome(str){
  let reversed = '';
 
  function helper(str, index) {
@@ -9,5 +9,7 @@ function reverse(str){
   helper(str, index+1)
  }
  helper(str, 1)
- return reversed;
+
+ return reversed === str ? true : false
+ 
 }
