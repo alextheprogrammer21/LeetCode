@@ -1,12 +1,16 @@
 function capitalizeFirst(arr) {
- let result = [];
+  let result = [];
   let index = 0;
-
- if (index === arr.length) {
+  function helper(index, arr) {
+    if (index === arr.length) {
+      return;
+    }
+    let word = arr[index].charAt(0).toUpperCase() + arr[index].slice(1);
+    result.push(word)
+    helper(index+1, arr)
+  }
+  helper(index, arr)
   return result;
- }
-  result[0] = arr[index].charAt(0).toUpperCase() + arr[0].slice(1);
-  return capitalizeFirst(arr, index+1)
 }
 
-capitalizeFirst(['banana'])
+console.log(capitalizeFirst(['banana','hello','noobie']))
