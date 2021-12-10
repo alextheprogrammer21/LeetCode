@@ -27,6 +27,21 @@ class BinarySearchTree {
         }
         return this;
     }
+    find(val) {
+        function helper(node) {
+            if (node.val === val) {
+                return node;
+            }
+            if (node.left && node.val > val) {
+                return helper(node.left);
+            }
+            if (node.right && node.val < val) {
+                return helper(node.right);
+            }
+            return null;
+        }
+        return helper(this.root);
+    }
 }
 
 var tree = new BinarySearchTree();
@@ -34,5 +49,5 @@ tree.root = new Node(10);
 tree.root.right = new Node(15);
 tree.root.left = new Node(5);
 tree.insert(7);
-tree.insert(9)
-console.log(tree.root.left)
+tree.insert(9);
+console.log(tree.find(7));
